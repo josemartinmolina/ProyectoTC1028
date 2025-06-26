@@ -1,8 +1,11 @@
-# Programa para determinar si un número es par o impar
+import streamlit as st
 
-numero = int(input("Ingresa un número: "))
+st.title("¿Par o impar?")
 
-if numero % 2 == 0:
-    print(f"{numero} es par.")
-else:
-    print(f"{numero} es impar.")
+numero = st.number_input("Ingresa un número", step=1, format="%d")
+
+if numero != 0 or numero == 0:  # Para mostrar resultado siempre que se haya ingresado algo
+    if numero % 2 == 0:
+        st.success(f"{int(numero)} es par.")
+    else:
+        st.info(f"{int(numero)} es impar.")
